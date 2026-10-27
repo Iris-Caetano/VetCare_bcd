@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projeto acadêmico VetCare: organização de dados de uma clínica veterinária com banco de dados relacional.">
+  <title>VetCare | Gestão Veterinária</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="VetCare - início">
+      <span class="brand-mark" aria-hidden="true">✚</span>
+      <span>Vet<span>Care</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav class="nav" id="mainNav" aria-label="Menu principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#banco">Banco de dados</a>
+      <a href="#consultas">Consultas SQL</a>
+      <a href="#normalizacao">Normalização</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <p class="eyebrow">PROJETO ACADÊMICO • BANCO DE DADOS</p>
+        <h1>Cuidado com os animais. <span>Organização para quem cuida.</span></h1>
+        <p class="hero-description">O VetCare é uma proposta de sistema para organizar as informações de uma clínica veterinária usando um banco de dados relacional.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#banco">Conheça o banco</a>
+          <a class="button button-secondary" href="#sobre">Sobre o projeto</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="circle circle-one"></div>
+        <div class="circle circle-two"></div>
+        <div class="pet-card">
+          <div class="pet-icon">🐾</div>
+          <div>
+            <strong>VetCare</strong>
+            <p>Informação organizada, cuidado melhor planejado.</p>
+          </div>
+          <span class="status-dot"></span>
+        </div>
+        <div class="floating-note note-top">♡ Bem-estar animal</div>
+        <div class="floating-note note-bottom">✓ Dados conectados</div>
+      </div>
+    </section>
+
+    <section class="section intro-grid" id="sobre">
+      <div>
+        <p class="eyebrow">01 / SOBRE O PROJETO</p>
+        <h2>Uma solução para organizar a rotina veterinária</h2>
+      </div>
+      <div class="section-copy">
+        <p>Uma clínica veterinária precisa manter informações de tutores, animais, profissionais, consultas e serviços. Quando esses dados ficam espalhados ou são registrados sem organização, pode ser difícil localizar informações e acompanhar os atendimentos.</p>
+        <p>O VetCare propõe um banco de dados relacional que conecta essas informações por meio de tabelas e relacionamentos, facilitando consultas, atualização e análise dos dados.</p>
+      </div>
+    </section>
+
+    <section class="section soft-section" id="banco">
+      <div class="section-heading">
+        <p class="eyebrow">02 / ESTRUTURA DO BANCO</p>
+        <h2>Oito tabelas trabalhando em conjunto</h2>
+        <p>Selecione um cartão para entender a função de cada tabela no modelo.</p>
+      </div>
+      <div class="table-grid">
+        <button class="table-card" data-table="tutores"><span class="table-symbol">01</span><strong>tutores</strong><span>Dados de contato dos responsáveis pelos animais.</span></button>
+        <button class="table-card" data-table="enderecos"><span class="table-symbol">02</span><strong>enderecos</strong><span>Endereços associados aos tutores.</span></button>
+        <button class="table-card" data-table="animais"><span class="table-symbol">03</span><strong>animais</strong><span>Nome, espécie, raça e nascimento dos animais.</span></button>
+        <button class="table-card" data-table="especialidades"><span class="table-symbol">04</span><strong>especialidades</strong><span>Especialidades dos profissionais veterinários.</span></button>
+        <button class="table-card" data-table="veterinarios"><span class="table-symbol">05</span><strong>veterinarios</strong><span>Dados dos veterinários e sua especialidade.</span></button>
+        <button class="table-card" data-table="consultas"><span class="table-symbol">06</span><strong>consultas</strong><span>Agendamentos, status e observações dos atendimentos.</span></button>
+        <button class="table-card" data-table="servicos"><span class="table-symbol">07</span><strong>servicos</strong><span>Catálogo de serviços e preços.</span></button>
+        <button class="table-card" data-table="consultas_servicos"><span class="table-symbol">08</span><strong>consultas_servicos</strong><span>Serviços associados às consultas, com quantidade e valor unitário.</span></button>
+      </div>
+      <div class="table-detail" id="tableDetail" aria-live="polite">
+        <strong>Explore as tabelas</strong>
+        <p>Clique em um dos cartões acima para ver a explicação da tabela.</p>
+      </div>
+    </section>
+
+    <section class="section" id="consultas">
+      <div class="section-heading">
+        <p class="eyebrow">03 / CONSULTAS SQL</p>
+        <h2>Transformando dados em respostas</h2>
+        <p>As consultas SQL permitem buscar, filtrar, relacionar e resumir informações do banco.</p>
+      </div>
+      <div class="query-grid">
+        <article class="query-card">
+          <span class="query-tag">INNER JOIN</span>
+          <h3>Relacionar tabelas</h3>
+          <p>Combina registros relacionados, como os animais e seus tutores.</p>
+          <pre><code>SELECT a.nome, t.nome AS tutor
+FROM animais a
+INNER JOIN tutores t
+  ON a.id_tutor = t.id_tutor;</code></pre>
+        </article>
+        <article class="query-card">
+          <span class="query-tag">WHERE + LIKE</span>
+          <h3>Filtrar informações</h3>
+          <p>Localiza animais de uma espécie específica ou tutores por padrão de nome.</p>
+          <pre><code>SELECT nome, especie
+FROM animais
+WHERE especie = 'Gato';</code></pre>
+        </article>
+        <article class="query-card">
+          <span class="query-tag">GROUP BY + COUNT</span>
+          <h3>Resumir resultados</h3>
+          <p>Conta quantas consultas estão associadas a cada veterinário.</p>
+          <pre><code>SELECT v.nome, COUNT(c.id_consulta)
+FROM veterinarios v
+LEFT JOIN consultas c
+  ON c.id_veterinario = v.id_veterinario
+GROUP BY v.id_veterinario, v.nome;</code></pre>
+        </article>
+      </div>
+      <p class="notice">O projeto inclui um arquivo separado com 15 consultas SQL. Os exemplos nesta página são demonstrativos e devem corresponder aos nomes reais dos campos do banco.</p>
+    </section>
+
+    <section class="section soft-section" id="normalizacao">
+      <div class="section-heading">
+        <p class="eyebrow">04 / ORGANIZAÇÃO DOS DADOS</p>
+        <h2>Entendendo a normalização</h2>
+        <p>As formas normais ajudam a estruturar tabelas e reduzir redundâncias. A conformidade precisa ser verificada pelas dependências dos atributos.</p>
+      </div>
+      <div class="normal-grid">
+        <article><span>1FN</span><h3>Valores atômicos</h3><p>Cada campo armazena um valor por registro, sem listas de itens na mesma célula.</p></article>
+        <article><span>2FN</span><h3>Dependência completa</h3><p>Os atributos não-chave dependem da chave primária completa.</p></article>
+        <article><span>3FN</span><h3>Sem dependências transitivas indevidas</h3><p>Os atributos não-chave dependem da chave, não de outros atributos não-chave.</p></article>
+        <article><span>4FN</span><h3>Dependências multivaloradas</h3><p>Evita reunir conjuntos independentes de múltiplos valores na mesma tabela.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#inicio"><span class="brand-mark">✚</span><span>Vet<span>Care</span></span></a>
+    <p>Projeto acadêmico de banco de dados relacional.</p>
+    <a href="#inicio" class="back-top">Voltar ao topo ↑</a>
+  </footer>
+</body>
+</html>
