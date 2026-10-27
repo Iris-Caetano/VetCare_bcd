@@ -382,6 +382,6 @@ ORDER BY total_consulta DESC;
 
 ## 👩‍💻 Autor
 
-Desenvolvido por **<Iris Caetano>** —  [GitHub](https://github.com/Iris-Caetano)
+Desenvolvido por **<Iris Caetano>** —  [Iris Caetano](https://github.com/Iris-Caetano)
 
 
