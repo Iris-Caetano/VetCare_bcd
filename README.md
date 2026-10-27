@@ -285,12 +285,13 @@ O modelo foi estruturado seguindo as formas normais, que reduzem redundância e 
 
 ```
 vetcare/
-├── criacaoTabelas.sql     # DDL: cria o banco vetcare_bd e as 8 tabelas
-├── insercao_dados.sql     # DML: popula as tabelas com dados de exemplo
-├── consultas.sql          # DQL: 15 consultas de exemplo
+├── sql/
+│   ├── criacaoTabelas.sql
+│   ├── insercao_dados.sql
+│   └── consultas.sql
 ├── docs/
-│   ├── diagrama-er.png            # Diagrama entidade-relacionamento
-│   └── apresentacao-*.png         # Prints da página de apresentação
+│   ├── diagrama-er.png
+│   └── apresentacao-*.png
 └── README.md
 ```
 
