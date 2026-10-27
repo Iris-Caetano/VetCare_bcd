@@ -10,7 +10,7 @@ Modelagem e implementação de um banco de dados relacional para uma **clínica 
 
 ---
 
-## 📑 Sumário
+## Sumário
 
 - [Sobre o projeto](#-sobre-o-projeto)
 - [Funcionalidades](#-funcionalidades)
@@ -27,7 +27,7 @@ Modelagem e implementação de um banco de dados relacional para uma **clínica 
 
 ---
 
-## 📖 Sobre o projeto
+## Sobre o projeto
 
 O **VetCare** responde a perguntas do dia a dia de uma clínica veterinária:
 
@@ -38,16 +38,16 @@ O **VetCare** responde a perguntas do dia a dia de uma clínica veterinária:
 
 O projeto reúne o **script de criação** das tabelas (DDL), uma **carga inicial de dados** (DML) e **15 consultas** (DQL) que exploram desde filtros simples até junções múltiplas, agregações e subconsultas.
 
-## ✨ Funcionalidades
+## Funcionalidades
 
-- 👤 Cadastro de **tutores** com endereço, telefone e e-mail
-- 🐶 Cadastro de **animais** (espécie, raça e data de nascimento) vinculados a um tutor
-- 🩺 Cadastro de **veterinários** com CRMV e especialidade
-- 📅 Registro de **consultas** com data/hora, status e observações
-- 💉 Catálogo de **serviços** com preço (consulta, vacinação, exames etc.)
-- 💰 Associação de serviços a cada consulta, com **quantidade e valor unitário** praticado no momento do atendimento
+-  Cadastro de **tutores** com endereço, telefone e e-mail
+-  Cadastro de **animais** (espécie, raça e data de nascimento) vinculados a um tutor
+-  Cadastro de **veterinários** com CRMV e especialidade
+-  Registro de **consultas** com data/hora, status e observações
+-  Catálogo de **serviços** com preço (consulta, vacinação, exames etc.)
+-  Associação de serviços a cada consulta, com **quantidade e valor unitário** praticado no momento do atendimento
 
-## 🌐 Apresentação web
+##  Apresentação web
 
 Como complemento ao banco, o projeto conta com uma **página de apresentação** que explica a proposta de forma visual e interativa. Ela está organizada em quatro seções:
 
@@ -74,9 +74,7 @@ Como complemento ao banco, o projeto conta com uma **página de apresentação**
 
 > Os exemplos de SQL da página são demonstrativos. As 15 consultas completas e testadas estão em [`consultas.sql`](consultas.sql).
 
-## 🗺️ Modelo de dados
-
-![Diagrama Entidade-Relacionamento](docs/diagrama-er.png)
+## Modelo de dados
 
 Versão em texto (renderizada automaticamente pelo GitHub):
 
@@ -159,7 +157,7 @@ erDiagram
 | `especialidades` → `veterinarios` | 1 : N | Uma especialidade agrupa vários veterinários |
 | `consultas` ↔ `servicos` | N : N | Resolvido pela tabela associativa `consultas_servicos` |
 
-## 📚 Dicionário de dados
+##  Dicionário de dados
 
 <details>
 <summary><strong>enderecos</strong></summary>
@@ -267,7 +265,7 @@ erDiagram
 
 </details>
 
-## 🧩 Normalização
+##  Normalização
 
 O modelo foi estruturado seguindo as formas normais, que reduzem redundância e evitam anomalias de inserção, atualização e exclusão.
 
@@ -296,7 +294,7 @@ vetcare/
 └── README.md
 ```
 
-## 🚀 Como executar
+##  Como executar
 
 ### Pré-requisitos
 
@@ -330,9 +328,9 @@ mysql -u root -p < insercao_dados.sql
 mysql -u root -p < consultas.sql
 ```
 
-> 💡 No **MySQL Workbench**, basta abrir cada arquivo em uma aba (`File > Open SQL Script`) e executar com `Ctrl + Shift + Enter`, respeitando a ordem acima.
+>  No **MySQL Workbench**, basta abrir cada arquivo em uma aba (`File > Open SQL Script`) e executar com `Ctrl + Shift + Enter`, respeitando a ordem acima.
 
-## 🔍 Consultas disponíveis
+##  Consultas disponíveis
 
 O arquivo [`consultas.sql`](consultas.sql) traz 15 consultas, cada uma com seu contexto documentado em comentário.
 
@@ -372,7 +370,7 @@ GROUP BY c.id_consulta, a.nome
 ORDER BY total_consulta DESC;
 ```
 
-## 🧠 Conceitos de SQL aplicados
+##  Conceitos de SQL aplicados
 
 - **DDL:** `CREATE DATABASE`, `CREATE TABLE IF NOT EXISTS`, `AUTO_INCREMENT`, chaves primárias e estrangeiras
 - **DML:** `INSERT INTO ... VALUES` em múltiplas linhas
@@ -382,20 +380,8 @@ ORDER BY total_consulta DESC;
 - **Subconsultas:** comparação com valor agregado
 - **Modelagem:** normalização, relacionamento 1:N e N:N com tabela associativa
 
-## 🔮 Melhorias futuras
-
-- [ ] Tabela de **vacinas** e carteira de vacinação por animal
-- [ ] **Prontuário** com histórico clínico, peso e receitas
-- [ ] Tabela de **pagamentos** com forma de pagamento e status
-- [ ] Restrição `UNIQUE (id_consulta, id_servico)` para evitar serviços duplicados na mesma consulta
-- [ ] Índices em colunas muito consultadas (`data_hora`, `especie`)
-- [ ] **Views** para relatórios de faturamento e agenda
-- [ ] **Stored procedures** para agendamento e cancelamento de consultas
-
 ## 👩‍💻 Autor
 
-Desenvolvido por **<seu nome>** — [LinkedIn](https://linkedin.com/in/<seu-usuario>) · [GitHub](https://github.com/<seu-usuario>)
+Desenvolvido por **<Iris Caetano>** —  [GitHub](https://github.com/Iris-Caetano)
 
----
 
-<p align="center">Feito com 💙 e muito SQL</p>
